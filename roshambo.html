@@ -1,24 +1,51 @@
 <head>
-
+<title>Roshambo by thasty1707</title>
 </head>
 <body>
     <script>
-        let opts = ['Rock','Paper','Scissors'];
         
-        function computerPlay(opts) {
-            //recognize player input
-            //randomly choose from opts array
-            //input computer choice
-            //compare player input to computer input
-            //determine winner of round
-            //output result to console.log(), then alert() or <p>
+        
+        function computerPlay() {
+            let options = ["Rock","Paper","Scissors"];
+            let choice = options[Math.floor(Math.random() * options.length)];
+            console.log("Computer chooses " + choice);
+        };
+
+        
+        function playRound(playerSelection, computerSelection) {
+            if(playerSelection === 'rock'){
+                if(computerSelection === 'Rock'){
+                    alert("It's a tie with rock.");
+                } else if(computerSelection === 'Paper'){
+                    alert("Computer wins. Paper beats rock.");
+                } else if(computerSelection === 'Scissors'){
+                    alert("Player wins. Rock beats scissors.");
+                }
+            } else if(playerSelection === 'paper'){
+                if(computerSelection === 'Rock') {
+                    alert("Player wins. Paper beats rock.");
+                } else if(computerSelection === 'Scissors'){
+                    alert("Computer wins. Scissors beat paper.");
+                } else if(computerSelection === 'Paper'){
+                    alert("It's a tie with paper.");
+                }
+            } else if(playerSelection === 'scissors'){
+                if(computerSelection === 'Rock') {
+                    alert("Computer wins. Rock beats scissors.");
+                } else if(computerSelection === 'Scissors'){
+                    alert("It's a tie with scissors.");
+                } else if(computerSelection === 'Paper'){
+                    alert("Player wins. Scissors beats paper.");
+                }
+            }
         }
 
-        function playRound(playerSelection, computerSelection) {}
+        const playerSelection = prompt("Rock, Paper, or Scissors?");
+        console.log("Player chooses " + playerSelection);
 
-        const playerSelection = "rock";
+        //const playerSelection = "rock";
         const computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection)); 
+        //console.log(playRound()); 
 
 
     </script>
