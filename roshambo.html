@@ -4,7 +4,6 @@
 <body>
     <script>
         const playerSelection = prompt("Rock, Paper, or Scissors?");
-        console.log(playerSelection);
         
         function computerPlay() {
             let maxPossible = 2;
@@ -19,7 +18,7 @@
             }
         };
 
-        console.log(computerPlay());
+        const computerSelection = computerPlay();
         
         function playRound() {
             if(playerSelection === 'rock'){
@@ -47,12 +46,10 @@
                     alert("Player wins. Scissors beats paper.");
                 }
             }
-        }
-
+        };
 
         //const playerSelection = "rock";
-        const computerSelection = computerPlay();
-        //console.log(playRound()); 
+        playRound(); 
 
 
     </script>
