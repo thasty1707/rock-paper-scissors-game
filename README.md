@@ -1,0 +1,1 @@
+A simple webpage with script to play a game of Rock-Paper-Scissors, a.k.a. Roshambo. Content and style are not required.
