@@ -3,45 +3,52 @@
 </head>
 <body>
     <script>
-        
+        const playerSelection = prompt("Rock, Paper, or Scissors?");
+        console.log(playerSelection);
         
         function computerPlay() {
-            let options = ["Rock","Paper","Scissors"];
-            let choice = options[Math.floor(Math.random() * options.length)];
-            return console.log("Computer chooses " + choice);
+            let maxPossible = 2;
+            let choice = Math.round(Math.random() * maxPossible);
+
+            if(choice==0){
+                return "rock";
+            }else if(choice==1){
+                return "paper";
+            }else if(choice==2){
+                return "scissors";
+            }
         };
 
+        console.log(computerPlay());
         
-        function playRound(playerSelection, computerSelection) {
+        function playRound() {
             if(playerSelection === 'rock'){
-                if(computerSelection === 'Rock'){
+                if(computerSelection === 'rock'){
                     alert("It's a tie with rock.");
-                } else if(computerSelection === 'Paper'){
+                } else if(computerSelection === 'paper'){
                     alert("Computer wins. Paper beats rock.");
-                } else if(computerSelection === 'Scissors'){
+                } else if(computerSelection === 'scissors'){
                     alert("Player wins. Rock beats scissors.");
                 }
             } else if(playerSelection === 'paper'){
-                if(computerSelection === 'Rock') {
+                if(computerSelection === 'rock') {
                     alert("Player wins. Paper beats rock.");
-                } else if(computerSelection === 'Scissors'){
+                } else if(computerSelection === 'scissors'){
                     alert("Computer wins. Scissors beat paper.");
-                } else if(computerSelection === 'Paper'){
+                } else if(computerSelection === 'paper'){
                     alert("It's a tie with paper.");
                 }
             } else if(playerSelection === 'scissors'){
-                if(computerSelection === 'Rock') {
+                if(computerSelection === 'rock') {
                     alert("Computer wins. Rock beats scissors.");
-                } else if(computerSelection === 'Scissors'){
+                } else if(computerSelection === 'scissors'){
                     alert("It's a tie with scissors.");
-                } else if(computerSelection === 'Paper'){
+                } else if(computerSelection === 'paper'){
                     alert("Player wins. Scissors beats paper.");
                 }
             }
         }
 
-        const playerSelection = prompt("Rock, Paper, or Scissors?");
-        console.log("Player chooses " + playerSelection);
 
         //const playerSelection = "rock";
         const computerSelection = computerPlay();
