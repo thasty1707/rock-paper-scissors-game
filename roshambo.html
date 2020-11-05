@@ -24,53 +24,56 @@
         let tieScore = 0;
 
         function playRound() {
-            const playerSelection = prompt("Rock, paper, or scissors?");
+            const playerSelection = prompt("What is your choice\?","rock, paper, or scissors?").toLowerCase();
             const computerSelection = computerPlay();
             
-            if(playerSelection === 'rock'){
-                if(computerSelection === 'rock'){
-                    roundsPlayed++;
-                    tieScore++;
-                    alert("Rock ties rock.");
-                } else if(computerSelection === 'paper'){
-                    roundsPlayed++;
-                    compScore++;
-                    alert("Rock is beaten by paper.");
-                } else if(computerSelection === 'scissors'){
-                    roundsPlayed++;
-                    playScore++;
-                    alert("Rock beats scissors.");
-                }
-            } else if(playerSelection === 'paper'){
-                if(computerSelection === 'rock') {
-                    roundsPlayed++;
-                    playScore++;
-                    alert("Paper beats rock.");
-                } else if(computerSelection === 'scissors'){
-                    roundsPlayed++;
-                    compScore++;
-                    alert("Paper is beaten by scissors.");
-                } else if(computerSelection === 'paper'){
-                    roundsPlayed++;
-                    tieScore++;
-                    alert("Paper ties paper.");
-                }
-            } else if(playerSelection === 'scissors'){
-                if(computerSelection === 'rock') {
-                    roundsPlayed++;
-                    compScore++;
-                    alert("Scissors is beaten by rock.");
-                } else if(computerSelection === 'scissors'){
-                    roundsPlayed++;
-                    tieScore++;
-                    alert("Scissors ties scissors.");
-                } else if(computerSelection === 'paper'){
-                    roundsPlayed++;
-                    playScore++;
-                    alert("Scissors beats paper.");
+            if(playerSelection != 'rock' || 'paper' || 'scissors'){
+                alert("Invalid selection." + '\n' + "Please choose rock, paper, or scissors.")
+            }else if(playerSelection === 'rock'){
+                    if(computerSelection === 'rock'){
+                        roundsPlayed++;
+                        tieScore++;
+                        alert("Rock ties rock.");
+                    } else if(computerSelection === 'paper'){
+                        roundsPlayed++;
+                        compScore++;
+                      alert("Rock is beaten by paper.");
+                    } else if(computerSelection === 'scissors'){
+                        roundsPlayed++;
+                        playScore++;
+                        alert("Rock beats scissors.");
+                    }
+                } else if(playerSelection === 'paper'){
+                    if(computerSelection === 'rock') {
+                        roundsPlayed++;
+                        playScore++;
+                        alert("Paper beats rock.");
+                    } else if(computerSelection === 'scissors'){
+                        roundsPlayed++;
+                        compScore++;
+                        alert("Paper is beaten by scissors.");
+                    } else if(computerSelection === 'paper'){
+                        roundsPlayed++;
+                        tieScore++;
+                        alert("Paper ties paper.");
+                    }
+                } else if(playerSelection === 'scissors'){
+                    if(computerSelection === 'rock') {
+                        roundsPlayed++;
+                        compScore++;
+                        alert("Scissors is beaten by rock.");
+                    } else if(computerSelection === 'scissors'){
+                        roundsPlayed++;
+                        tieScore++;
+                        alert("Scissors ties scissors.");
+                    } else if(computerSelection === 'paper'){
+                        roundsPlayed++;
+                        playScore++;
+                        alert("Scissors beats paper.");
+                    }
                 }
             }
-        };
+        
 
         function game(){
             playRound();
@@ -78,7 +81,7 @@
             playRound();
             alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
             playRound();
-            alert("Round #" + roundsPlayed + '\n' + "Player; " + playScore + '  \|  ' + "Computer: " + compScore);
+            alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
             playRound();
             alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
             playRound();
