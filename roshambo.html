@@ -2,9 +2,10 @@
 <title>Roshambo by thasty1707</title>
 </head>
 <body>
+
     <script>
-        //alert("Would you like to play a game?");
-        
+        alert("Let\'s play a game\!");
+
         function computerPlay() {
             let maxPossible = 2;
             let choice = Math.round(Math.random() * maxPossible);
@@ -18,58 +19,49 @@
             }
         }
         
-        let roundsPlayed = 0;
         let playScore = 0;
         let compScore = 0;
         let tieScore = 0;
 
         function playRound() {
-            const playerSelection = prompt("What is your choice\?","rock, paper, or scissors?").toLowerCase();
+            const playerSelection = prompt("Rock, paper, or scissors\?").toLowerCase();
             const computerSelection = computerPlay();
             
-            if(playerSelection != 'rock' || 'paper' || 'scissors'){
-                alert("Invalid selection." + '\n' + "Please choose rock, paper, or scissors.")
-            }else if(playerSelection === 'rock'){
+            console.log("Player: " + playerSelection);
+            console.log("Computer: " + computerSelection);
+
+            if(playerSelection === 'rock'){
                     if(computerSelection === 'rock'){
-                        roundsPlayed++;
                         tieScore++;
-                        alert("Rock ties rock.");
+                        alert("Rock ties rock." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'paper'){
-                        roundsPlayed++;
                         compScore++;
-                      alert("Rock is beaten by paper.");
+                        alert("Rock is beaten by paper." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'scissors'){
-                        roundsPlayed++;
                         playScore++;
-                        alert("Rock beats scissors.");
+                        alert("Rock beats scissors." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
                     }
                 } else if(playerSelection === 'paper'){
                     if(computerSelection === 'rock') {
-                        roundsPlayed++;
                         playScore++;
-                        alert("Paper beats rock.");
+                        alert("Paper beats rock." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'scissors'){
-                        roundsPlayed++;
                         compScore++;
-                        alert("Paper is beaten by scissors.");
+                        alert("Paper is beaten by scissors." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'paper'){
-                        roundsPlayed++;
                         tieScore++;
-                        alert("Paper ties paper.");
+                        alert("Paper ties paper." + '\n' + "Round #" + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
                     }
                 } else if(playerSelection === 'scissors'){
                     if(computerSelection === 'rock') {
-                        roundsPlayed++;
                         compScore++;
-                        alert("Scissors is beaten by rock.");
+                        alert("Scissors is beaten by rock." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'scissors'){
-                        roundsPlayed++;
                         tieScore++;
-                        alert("Scissors ties scissors.");
+                        alert("Scissors ties scissors."  + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'paper'){
-                        roundsPlayed++;
                         playScore++;
-                        alert("Scissors beats paper.");
+                        alert("Scissors beats paper." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
                     }
                 }
             }
@@ -77,16 +69,22 @@
 
         function game(){
             playRound();
-            alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+            console.log("P: " + playScore + " to " + "C: " + compScore);
             playRound();
-            alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+            console.log("P: " + playScore + " to " + "C: " + compScore);
             playRound();
-            alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+            console.log("P: " + playScore + " to " + "C: " + compScore);
             playRound();
-            alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+            console.log("P: " + playScore + " to " + "C: " + compScore);
             playRound();
-            alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
-            alert('Game over. Final score: ' + '\n\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore + '  \|  ' + "Ties: " + tieScore);
+            console.log("Final Score\= P: " + playScore + " to " + "C: " + compScore);
+            if(playScore>compScore){
+                alert("Game over. Player wins\!" + ' ' + playScore + ' to ' + compScore)
+            }else if(playScore==compScore){
+                alert("Game over. Tie\!" + ' ' + playScore + ' to ' + compScore)
+            }else{
+                alert("Game over. Computer wins\!" + ' ' + playScore + ' to ' + compScore)
+            }
         }
 
         game();
