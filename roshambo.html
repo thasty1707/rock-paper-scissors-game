@@ -3,7 +3,7 @@
 </head>
 <body>
     <script>
-        const playerSelection = prompt("Rock, Paper, or Scissors?");
+        //alert("Would you like to play a game?");
         
         function computerPlay() {
             let maxPossible = 2;
@@ -16,41 +16,77 @@
             }else if(choice==2){
                 return "scissors";
             }
-        };
-
-        const computerSelection = computerPlay();
+        }
         
+        let roundsPlayed = 0;
+        let playScore = 0;
+        let compScore = 0;
+        let tieScore = 0;
+
         function playRound() {
+            const playerSelection = prompt("Rock, paper, or scissors?");
+            const computerSelection = computerPlay();
+            
             if(playerSelection === 'rock'){
                 if(computerSelection === 'rock'){
-                    alert("It's a tie with rock.");
+                    roundsPlayed++;
+                    tieScore++;
+                    alert("Rock ties rock.");
                 } else if(computerSelection === 'paper'){
-                    alert("Computer wins. Paper beats rock.");
+                    roundsPlayed++;
+                    compScore++;
+                    alert("Rock is beaten by paper.");
                 } else if(computerSelection === 'scissors'){
-                    alert("Player wins. Rock beats scissors.");
+                    roundsPlayed++;
+                    playScore++;
+                    alert("Rock beats scissors.");
                 }
             } else if(playerSelection === 'paper'){
                 if(computerSelection === 'rock') {
-                    alert("Player wins. Paper beats rock.");
+                    roundsPlayed++;
+                    playScore++;
+                    alert("Paper beats rock.");
                 } else if(computerSelection === 'scissors'){
-                    alert("Computer wins. Scissors beat paper.");
+                    roundsPlayed++;
+                    compScore++;
+                    alert("Paper is beaten by scissors.");
                 } else if(computerSelection === 'paper'){
-                    alert("It's a tie with paper.");
+                    roundsPlayed++;
+                    tieScore++;
+                    alert("Paper ties paper.");
                 }
             } else if(playerSelection === 'scissors'){
                 if(computerSelection === 'rock') {
-                    alert("Computer wins. Rock beats scissors.");
+                    roundsPlayed++;
+                    compScore++;
+                    alert("Scissors is beaten by rock.");
                 } else if(computerSelection === 'scissors'){
-                    alert("It's a tie with scissors.");
+                    roundsPlayed++;
+                    tieScore++;
+                    alert("Scissors ties scissors.");
                 } else if(computerSelection === 'paper'){
-                    alert("Player wins. Scissors beats paper.");
+                    roundsPlayed++;
+                    playScore++;
+                    alert("Scissors beats paper.");
                 }
             }
         };
 
-        //const playerSelection = "rock";
-        playRound(); 
+        function game(roundsPlayed){
+            playRound();
+            alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+            playRound();
+            alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+            playRound();
+            alert("Round #" + roundsPlayed + '\n' + "Player; " + playScore + '  \|  ' + "Computer: " + compScore);
+            playRound();
+            alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+            playRound();
+            alert("Round #" + roundsPlayed + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+            alert('Game over. Final score: ' + '\n\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore + '  \|  ' + "Ties: " + tieScore);
+        }
 
+        game();
 
     </script>
 </body>
