@@ -1,0 +1,93 @@
+<head>
+<title>Roshambo by thasty1707</title>
+</head>
+<body>
+<p>Open the console to view the results</p>
+    <script>
+        alert("Let\'s play a game\!");
+
+        function computerPlay() {
+            let maxPossible = 2;
+            let choice = Math.round(Math.random() * maxPossible);
+
+            if(choice==0){
+                return "rock";
+            }else if(choice==1){
+                return "paper";
+            }else if(choice==2){
+                return "scissors";
+            }
+        }
+        
+        let playScore = 0;
+        let compScore = 0;
+        let tieScore = 0;
+
+        function playRound() {
+            const playerSelection = prompt("Rock, paper, or scissors\?").toLowerCase();
+            const computerSelection = computerPlay();
+            
+            console.log("Player: " + playerSelection);
+            console.log("Computer: " + computerSelection);
+
+            if(playerSelection === 'rock'){
+                    if(computerSelection === 'rock'){
+                        tieScore++;
+                        alert("Rock ties rock." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                    } else if(computerSelection === 'paper'){
+                        compScore++;
+                        alert("Rock is beaten by paper." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                    } else if(computerSelection === 'scissors'){
+                        playScore++;
+                        alert("Rock beats scissors." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                    }
+                } else if(playerSelection === 'paper'){
+                    if(computerSelection === 'rock') {
+                        playScore++;
+                        alert("Paper beats rock." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                    } else if(computerSelection === 'scissors'){
+                        compScore++;
+                        alert("Paper is beaten by scissors." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                    } else if(computerSelection === 'paper'){
+                        tieScore++;
+                        alert("Paper ties paper." + '\n' + "Round #" + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                    }
+                } else if(playerSelection === 'scissors'){
+                    if(computerSelection === 'rock') {
+                        compScore++;
+                        alert("Scissors is beaten by rock." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                    } else if(computerSelection === 'scissors'){
+                        tieScore++;
+                        alert("Scissors ties scissors."  + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                    } else if(computerSelection === 'paper'){
+                        playScore++;
+                        alert("Scissors beats paper." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                    }
+                }
+            }
+        
+
+        function game(){
+            playRound();
+            console.log("P: " + playScore + " to " + "C: " + compScore);
+            playRound();
+            console.log("P: " + playScore + " to " + "C: " + compScore);
+            playRound();
+            console.log("P: " + playScore + " to " + "C: " + compScore);
+            playRound();
+            console.log("P: " + playScore + " to " + "C: " + compScore);
+            playRound();
+            console.log("Final Score\= P: " + playScore + " to " + "C: " + compScore);
+            if(playScore>compScore){
+                alert("Game over. Player wins\!" + ' ' + playScore + ' to ' + compScore)
+            }else if(playScore==compScore){
+                alert("Game over. Tie\!" + ' ' + playScore + ' to ' + compScore)
+            }else{
+                alert("Game over. Computer wins\!" + ' ' + playScore + ' to ' + compScore)
+            }
+        }
+
+        game();
+
+    </script>
+</body>
