@@ -3,6 +3,7 @@
 </head>
 <body>
 <!--<p>Open the console to view the results</p>-->
+    <h1>Let's play Rock, Paper, Scissors!</h1>
     <script>
         //alert("Let\'s play a game\!");
 
@@ -23,12 +24,15 @@
         let compScore = 0;
         let tieScore = 0;
 
+        //Need new functions to play in html instead of prompts/alerts
+
+
         function playRound() {
-            const playerSelection = prompt("Rock, paper, or scissors\?").toLowerCase();
-            const computerSelection = computerPlay();
+            //const playerSelection = prompt("Rock, paper, or scissors\?").toLowerCase();
+            //const computerSelection = computerPlay();
             
-            console.log("Player: " + playerSelection);
-            console.log("Computer: " + computerSelection);
+            //console.log("Player: " + playerSelection);
+            //console.log("Computer: " + computerSelection);
 
             if(playerSelection === 'rock'){
                     if(computerSelection === 'rock'){
@@ -87,7 +91,7 @@
             }
         }
 
-        game();
+        //game();
 
     </script>
 </body>
