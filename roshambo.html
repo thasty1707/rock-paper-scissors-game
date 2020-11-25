@@ -26,13 +26,76 @@
             }
         }
 
-        function playerPlay(){
-            
-        }
-        
         let playerScore = 0;
         let compScore = 0;
         let tieScore = 0;
+        let round = 0;
+
+        let rock = document.getElementById('rockButton').addEventListener("click",playRock);
+        let paper = document.getElementById('paperButton').addEventListener("click",playPaper);
+        let scissors = document.getElementById('scissorsButton').addEventListener("click",playScissors);
+
+        function playRock(){
+            const computerSelection = computerPlay();
+
+            if(computerSelection === 'rock'){
+                tieScore++;
+                round++;
+                console.log("Round #" + round + ": Rock ties rock." + 
+                    '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+            } else if(computerSelection === 'paper'){
+                compScore++;
+                round++;
+                console.log("Round #" + round + ": Rock is beaten by paper." + 
+                    '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+            } else if(computerSelection === 'scissors'){
+                playerScore++;
+                round++;
+                console.log("Round #" + round + ": Rock beats scissors." + 
+                    '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+            };
+        }
+
+        function playPaper(){
+            const computerSelection = computerPlay();
+            if(computerSelection === 'rock'){
+                tieScore++;
+                round++;
+                console.log("Round #" + round + ": Paper beats rock." + 
+                    '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+            } else if(computerSelection === 'paper'){
+                compScore++;
+                round++;
+                console.log("Round #" + round + ": Paper ties paper." + 
+                    '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+            } else if(computerSelection === 'scissors'){
+                playerScore++;
+                round++;
+                console.log("Round #" + round + ": Paper is beaten by scissors." + 
+                    '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+            };
+        }
+
+        function playScissors(){
+            const computerSelection = computerPlay();
+            if(computerSelection === 'rock'){
+                tieScore++;
+                round++;
+                console.log("Round #" + round + ": Scissors is beaten by rock." + 
+                    '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+            } else if(computerSelection === 'paper'){
+                compScore++;
+                round++;
+                console.log("Round #" + round + ": Scissors beats paper." + 
+                    '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+            } else if(computerSelection === 'scissors'){
+                playerScore++;
+                round++;
+                console.log("Round #" + round + ": Scissors ties scissors." + 
+                    '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+            };
+        }
+        
 
         //Need new functions to play in html instead of prompts/alerts
 
