@@ -4,6 +4,12 @@
 <body>
 <!--<p>Open the console to view the results</p>-->
     <h1>Let's play Rock, Paper, Scissors!</h1>
+
+    <p>Which one do you play?</p>
+    <button id="rockButton">Rock</button>
+    <button id="paperButton">Paper</button>
+    <button id="scissorsButton">Scissors</button>
+
     <script>
         //alert("Let\'s play a game\!");
 
@@ -19,8 +25,12 @@
                 return "scissors";
             }
         }
+
+        function playerPlay(){
+            
+        }
         
-        let playScore = 0;
+        let playerScore = 0;
         let compScore = 0;
         let tieScore = 0;
 
@@ -37,35 +47,35 @@
             if(playerSelection === 'rock'){
                     if(computerSelection === 'rock'){
                         tieScore++;
-                        alert("Rock ties rock." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                        alert("Rock ties rock." + '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'paper'){
                         compScore++;
-                        alert("Rock is beaten by paper." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                        alert("Rock is beaten by paper." + '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'scissors'){
-                        playScore++;
-                        alert("Rock beats scissors." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                        playerScore++;
+                        alert("Rock beats scissors." + '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
                     }
                 } else if(playerSelection === 'paper'){
                     if(computerSelection === 'rock') {
-                        playScore++;
-                        alert("Paper beats rock." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                        playerScore++;
+                        alert("Paper beats rock." + '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'scissors'){
                         compScore++;
-                        alert("Paper is beaten by scissors." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                        alert("Paper is beaten by scissors." + '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'paper'){
                         tieScore++;
-                        alert("Paper ties paper." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                        alert("Paper ties paper." + '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
                     }
                 } else if(playerSelection === 'scissors'){
                     if(computerSelection === 'rock') {
                         compScore++;
-                        alert("Scissors is beaten by rock." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                        alert("Scissors is beaten by rock." + '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'scissors'){
                         tieScore++;
-                        alert("Scissors ties scissors."  + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                        alert("Scissors ties scissors."  + '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
                     } else if(computerSelection === 'paper'){
-                        playScore++;
-                        alert("Scissors beats paper." + '\n' + "Player: " + playScore + '  \|  ' + "Computer: " + compScore);
+                        playerScore++;
+                        alert("Scissors beats paper." + '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
                     }
                 }
             }
@@ -73,21 +83,21 @@
 
         function game(){
             playRound();
-            console.log("P: " + playScore + " to " + "C: " + compScore);
+            console.log("P: " + playerScore + " to " + "C: " + compScore);
             playRound();
-            console.log("P: " + playScore + " to " + "C: " + compScore);
+            console.log("P: " + playerScore + " to " + "C: " + compScore);
             playRound();
-            console.log("P: " + playScore + " to " + "C: " + compScore);
+            console.log("P: " + playerScore + " to " + "C: " + compScore);
             playRound();
-            console.log("P: " + playScore + " to " + "C: " + compScore);
+            console.log("P: " + playerScore + " to " + "C: " + compScore);
             playRound();
-            console.log("Final Score\= P: " + playScore + " to " + "C: " + compScore);
-            if(playScore>compScore){
-                alert("Game over. Player wins\!" + ' ' + playScore + ' to ' + compScore)
-            }else if(playScore==compScore){
-                alert("Game over. Tie\!" + ' ' + playScore + ' to ' + compScore)
+            console.log("Final Score\= P: " + playerScore + " to " + "C: " + compScore);
+            if(playerScore>compScore){
+                alert("Game over. Player wins\!" + ' ' + playerScore + ' to ' + compScore)
+            }else if(playerScore==compScore){
+                alert("Game over. Tie\!" + ' ' + playerScore + ' to ' + compScore)
             }else{
-                alert("Game over. Computer wins\!" + ' ' + playScore + ' to ' + compScore)
+                alert("Game over. Computer wins\!" + ' ' + playerScore + ' to ' + compScore)
             }
         }
 
