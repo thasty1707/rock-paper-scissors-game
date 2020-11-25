@@ -2,27 +2,9 @@
 <title>Roshambo by thasty1707</title>
 </head>
 <body>
-<!--<p>Open the console to view the results</p> original text--> 
-    <!--Need user input, round results, and score to be on the page, not in prompts-->
-    <div id="playerContainer" class="player">
-        <h1>Rock-Paper-Scissors!</h1>
-            <p>Which one do you choose?</p><br>
-            <!--<input type="text" id="playerInput"> <button id="submitButton">Submit</button> text input with submit button for choice?-->
-
-            <button id="rockButton">Rock</button>
-            <button id="paperButton">Paper</button>
-            <button id="scissorsButton">Scissors</button>
-
-
-    </div>
-    
-    <div id="gameResults" class="results"> <!--shows the results of each round (5) then the total game results-->
-        
-    </div>
-    
-    
+<!--<p>Open the console to view the results</p>-->
     <script>
-        //alert("Let\'s play a game\!"); original greeting alert
+        //alert("Let\'s play a game\!");
 
         function computerPlay() {
             let maxPossible = 2;
@@ -40,30 +22,13 @@
         let playScore = 0;
         let compScore = 0;
         let tieScore = 0;
-        let roundNumber = playScore + compScore + tieScore
-        //const submit = document.getElementById('submitButton');
-        let playerSelection;//user choice from input?
-        const choseRock = document.getElementById('rockButton');
-        const chosePaper = document.getElementById('paperButton');
-        const choseScissors = document.getElementById('scissorsButton');
-
-        function playerChoice(){
-            choseRock.onclick = playerSelection('rock');
-
-            return playerSelection
-        }
-
-        console.log(playerChoice());
 
         function playRound() {
-            const game = document.querySelector('.results');
+            const playerSelection = prompt("Rock, paper, or scissors\?").toLowerCase();
             const computerSelection = computerPlay();
             
-
-            
-
-            //console.log("Player: " + playerSelection);
-            //console.log("Computer: " + computerSelection);
+            console.log("Player: " + playerSelection);
+            console.log("Computer: " + computerSelection);
 
             if(playerSelection === 'rock'){
                     if(computerSelection === 'rock'){
@@ -122,7 +87,7 @@
             }
         }
 
-        //game();
+        game();
 
     </script>
 </body>
