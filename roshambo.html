@@ -69,6 +69,7 @@
             font-size: 40px;
             color: white;
             background-color: green;
+            border-radius: 8px;
         }
 
         .compWon{
@@ -77,6 +78,7 @@
             font-size: 40px;
             color: white;
             background-color: darkred;
+            border-radius: 8px;
         }
 
         .tieGame{
@@ -85,6 +87,7 @@
             font-size: 40px;
             color: white;
             background-color: darkslategrey;
+            border-radius: 8px;
         }
     </style>
 
@@ -127,7 +130,7 @@
             if(round == 5){
                 endRound.textContent = "Click \'Reset\' to start a new game.";
                 endRound.classList.add('results');
-                winner();
+                gameOver();
             }else if(round == 4){
                 if(computerSelection === 'rock'){
                     tieScore++;
@@ -177,10 +180,10 @@
 
         function playPaper() {
             const computerSelection = computerPlay();
-
             if(round == 5){
                 endRound.textContent = "Click \'Reset\' to start a new game.";
                 endRound.classList.add('results');
+                gameOver();
             }else if(round == 4){
                 if(computerSelection === 'rock'){
                     tieScore++;
@@ -233,6 +236,7 @@
             if(round == 5){
                 endRound.textContent = "Click \'Reset\' to start a new game.";
                 endRound.classList.add('results');
+                gameOver();
             }else if(round == 4){
                 if(computerSelection === 'rock'){
                     tieScore++;
@@ -286,16 +290,23 @@
             }else if(playerScore < compScore){
                 whoWon.textContent = "Game over. Computer Wins!";
                 whoWon.classList.add('compWon');
-            }else if(playerScore === compScore){
+            }else{
                 whoWon.textContent = "Game over. Tie Game!";
                 whoWon.classList.add('tieGame');
-            }else{
-                whoWon.textContent = '';
             }
         }
 
         function gameOver(){
-
+            if(playerScore > compScore){
+                whoWon.textContent = '';
+                whoWon.classList.remove('playerWon');
+            }else if(playerScore < compScore){
+                whoWon.textContent = '';
+                whoWon.classList.remove('compWon');
+            }else{
+                whoWon.textContent = '';
+                whoWon.classList.remove('tieGame');
+            }
         }
             
 
