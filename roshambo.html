@@ -28,12 +28,14 @@
         h1{
             font-size: 32px;
             text-justify: center;
+            margin: 1m;
         }
 
         #choices{
             display: inline-block;
-            border: 3px solid black;
+            align-items: center;
             padding: 15px;
+            align-content: center;
         }
 
         p{
@@ -49,14 +51,19 @@
             font-size: 22px;
         }
 
+        .results{
+            border: 3px solid black;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+        }
+
         button{
             font-size: 20px;
             margin: 10px;
         }
 
-        #resetButton{
-            align-self: center;
-        }
+
     </style>
 
     <script>
@@ -94,43 +101,51 @@
         function playRock(){
             const computerSelection = computerPlay();
             if(round == 5){
-                endRound.textContent = "Game over. Click \'Reset\' to start a new game.";
+                endRound.textContent = "Game over. Score \= Player: " + playerScore + "\| + Computer: " + compScore + 
+                "." + "Click \'Reset\' to start a new game.";
+                endRound.classList.add('results');
             }else if(round == 4){
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Rock ties rock." + 
-                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore + "." +
-                        '\n' + "Game over. Click \'Reset\' to start a new game.";                
+                        '\n' + "Score \= Player: " + playerScore + '\|  ' + "Computer: " + compScore + "." +
+                        '\n' + "Game over. Click \'Reset\' to start a new game.";
+                    endRound.classList.add('results');               
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Rock is beaten by paper." + 
-                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore + "." +
+                        '\n' + "Score \= Player: " + playerScore + '\|  ' + "Computer: " + compScore + "." +
                         '\n' + "Game over. Click \'Reset\' to start a new game.";
+                    endRound.classList.add('results');
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Rock beats scissors." + 
-                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore  + "." +
+                        '\n' + "Score \= Player: " + playerScore + '\|  ' + "Computer: " + compScore  + "." +
                         '\n' + "Game over. Click \'Reset\' to start a new game.";
+                    endRound.classList.add('results');
                 };
             } else {
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Rock ties rock. " + 
-                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore + ".";
+                        '\n' + "Score \= Player: " + playerScore + '\|  ' + "Computer: " + compScore + ".";
+                    endRound.classList.add('results');
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Rock is beaten by paper. " + 
-                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore + ".";
+                        '\n' + "Score \= Player: " + playerScore + '\|  ' + "Computer: " + compScore + ".";
+                    endRound.classList.add('results');
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Rock beats scissors. " + 
-                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore + ".";
+                        '\n' + "Score \= Player: " + playerScore + '\|  ' + "Computer: " + compScore + ".";
+                    endRound.classList.add('results');
                 }
             }
         };
@@ -140,43 +155,51 @@
             const computerSelection = computerPlay();
 
             if(round == 5){
-                endRound.textContent = "Game over. Click \'Reset\' to start a new game.";
+                endRound.textContent = "Game over. Score \= Player: " + playerScore + "\;" + "Computer: " + compScore + 
+                "." + "Click \'Reset\' to start a new game.";
+                endRound.classList.add('results');
             }else if(round == 4){
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Paper beats rock." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
                         '\n' + "Game over. Click \'Reset\' to start a new game.";
+                    endRound.classList.add('results');
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Paper ties paper." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
                         '\n' + "Game over. Click \'Reset\' to start a new game.";
+                    endRound.classList.add('results');
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Paper is beaten by scissors." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
                         '\n' + "Game over. Click \'Reset\' to start a new game.";
+                    endRound.classList.add('results');
                 }
             } else {
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Paper beats rock." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                    endRound.classList.add('results');
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Paper ties paper." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                    endRound.classList.add('results');
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Paper is beaten by scissors." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                    endRound.classList.add('results');
                 }
             }
         };
@@ -185,43 +208,51 @@
             const computerSelection = computerPlay();
 
             if(round == 5){
-                endRound.textContent = "Game over. Click \'Reset\' to start a new game.";
+                endRound.textContent = "Game over. Score \= Player: " + playerScore + "\|" + "Computer: " + compScore + 
+                "." + "Click \'Reset\' to start a new game.";
+                endRound.classList.add('results');
             }else if(round == 4){
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Scissors is beaten rock." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
                         '\n' + "Game over. Click \'Reset\' to start a new game.";
+                    endRound.classList.add('results');
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Scissors beats paper." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
                         '\n' + "Game over. Click \'Reset\' to start a new game.";
+                    endRound.classList.add('results');                        
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Scissors ties scissors." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
                         '\n' + "Game over. Click \'Reset\' to start a new game.";
+                    endRound.classList.add('results');
                 }
             } else {
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Scissors is beaten rock." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                    endRound.classList.add('results');
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Scissors beats paper." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                    endRound.classList.add('results');
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
                     endRound.textContent = "Round #" + round + ": Scissors ties scissors." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                        '\n' + "Score \= Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
+                    endRound.classList.add('results');
                 }
             }
         };
