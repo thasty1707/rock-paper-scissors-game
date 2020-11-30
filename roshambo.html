@@ -1,18 +1,63 @@
 <head>
 <title>Roshambo by thasty1707</title>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
     <!--<p>Open the console to view the results</p>-->
-    <h1>Let's play Rock, Paper, Scissors!</h1>
+    <h1><u>Let's play Rock, Paper, Scissors!</u></h1>
 
-    <p>Which one do you play?</p>
-    <button id="rockButton">Rock</button>
-    <button id="paperButton">Paper</button>
-    <button id="scissorsButton">Scissors</button>
+    <p><i>Which one do you choose?</i></p>
+    <div id='choices'>
+        <button id="rockButton">Rock</button>
+        <button id="paperButton">Paper</button>
+        <button id="scissorsButton">Scissors</button>
+    </div>
     <div id="results">
         
     </div><br>
     <button id="resetButton">Reset</button>
+
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            font-family: 'Mukta', sans-serif;
+            align-items: center;
+        }
+        
+        h1{
+            font-size: 32px;
+            text-justify: center;
+        }
+
+        #choices{
+            display: inline-block;
+            border: 3px solid black;
+            padding: 15px;
+        }
+
+        p{
+            display: block;
+            font-size: 20px;
+            text-align: center;
+            margin: auto;
+        }
+
+        #results{
+            margin: 10px;
+            padding: 15px;
+            font-size: 22px;
+        }
+
+        button{
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        #resetButton{
+            align-self: center;
+        }
+    </style>
 
     <script>
         function computerPlay() {
@@ -38,51 +83,54 @@
         let scissors = document.getElementById('scissorsButton').addEventListener("click", playScissors);
         let resetBtn = document.getElementById('resetButton').addEventListener("click", newGame);
 
+        const gameResults = document.getElementById('results');
+        let endRound = document.createElement('p');
+        gameResults.appendChild(endRound);
+
         function newGame(){
             window.location.reload();
         };
 
         function playRock(){
             const computerSelection = computerPlay();
-
             if(round == 5){
-                console.log("Game over. Click \'Reset\' to start a new game.")
+                endRound.textContent = "Game over. Click \'Reset\' to start a new game.";
             }else if(round == 4){
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
-                    console.log("Round #" + round + ": Rock ties rock." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
-                        '\n' + "Game over. Click \'Reset\' to start a new game.");
+                    endRound.textContent = "Round #" + round + ": Rock ties rock." + 
+                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore + "." +
+                        '\n' + "Game over. Click \'Reset\' to start a new game.";                
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
-                    console.log("Round #" + round + ": Rock is beaten by paper." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
-                        '\n' + "Game over. Click \'Reset\' to start a new game.");
+                    endRound.textContent = "Round #" + round + ": Rock is beaten by paper." + 
+                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore + "." +
+                        '\n' + "Game over. Click \'Reset\' to start a new game.";
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
-                    console.log("Round #" + round + ": Rock beats scissors." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
-                        '\n' + "Game over. Click \'Reset\' to start a new game.");
+                    endRound.textContent = "Round #" + round + ": Rock beats scissors." + 
+                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore  + "." +
+                        '\n' + "Game over. Click \'Reset\' to start a new game.";
                 };
             } else {
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
-                    console.log("Round #" + round + ": Rock ties rock." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+                    endRound.textContent = "Round #" + round + ": Rock ties rock. " + 
+                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore + ".";
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
-                    console.log("Round #" + round + ": Rock is beaten by paper." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+                    endRound.textContent = "Round #" + round + ": Rock is beaten by paper. " + 
+                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore + ".";
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
-                    console.log("Round #" + round + ": Rock beats scissors." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+                    endRound.textContent = "Round #" + round + ": Rock beats scissors. " + 
+                        '\n' + "Player: " + playerScore + '\;  ' + "Computer: " + compScore + ".";
                 }
             }
         };
@@ -92,43 +140,43 @@
             const computerSelection = computerPlay();
 
             if(round == 5){
-                console.log("Game over. Click \'Reset\' to start a new game.");
+                endRound.textContent = "Game over. Click \'Reset\' to start a new game.";
             }else if(round == 4){
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
-                    console.log("Round #" + round + ": Paper beats rock." + 
+                    endRound.textContent = "Round #" + round + ": Paper beats rock." + 
                         '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
-                        '\n' + "Game over. Click \'Reset\' to start a new game.");
+                        '\n' + "Game over. Click \'Reset\' to start a new game.";
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
-                    console.log("Round #" + round + ": Paper ties paper." + 
+                    endRound.textContent = "Round #" + round + ": Paper ties paper." + 
                         '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
-                        '\n' + "Game over. Click \'Reset\' to start a new game.");
+                        '\n' + "Game over. Click \'Reset\' to start a new game.";
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
-                    console.log("Round #" + round + ": Paper is beaten by scissors." + 
+                    endRound.textContent = "Round #" + round + ": Paper is beaten by scissors." + 
                         '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
-                        '\n' + "Game over. Click \'Reset\' to start a new game.");
+                        '\n' + "Game over. Click \'Reset\' to start a new game.";
                 }
             } else {
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
-                    console.log("Round #" + round + ": Paper beats rock." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+                    endRound.textContent = "Round #" + round + ": Paper beats rock." + 
+                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
-                    console.log("Round #" + round + ": Paper ties paper." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+                    endRound.textContent = "Round #" + round + ": Paper ties paper." + 
+                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
-                    console.log("Round #" + round + ": Paper is beaten by scissors." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+                    endRound.textContent = "Round #" + round + ": Paper is beaten by scissors." + 
+                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
                 }
             }
         };
@@ -137,43 +185,43 @@
             const computerSelection = computerPlay();
 
             if(round == 5){
-                console.log("Game over. Click \'Reset\' to start a new game.");
+                endRound.textContent = "Game over. Click \'Reset\' to start a new game.";
             }else if(round == 4){
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
-                    console.log("Round #" + round + ": Scissors is beaten rock." + 
+                    endRound.textContent = "Round #" + round + ": Scissors is beaten rock." + 
                         '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
-                        '\n' + "Game over. Click \'Reset\' to start a new game.");
+                        '\n' + "Game over. Click \'Reset\' to start a new game.";
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
-                    console.log("Round #" + round + ": Scissors beats paper." + 
+                    endRound.textContent = "Round #" + round + ": Scissors beats paper." + 
                         '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
-                        '\n' + "Game over. Click \'Reset\' to start a new game.");
+                        '\n' + "Game over. Click \'Reset\' to start a new game.";
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
-                    console.log("Round #" + round + ": Scissors ties scissors." + 
+                    endRound.textContent = "Round #" + round + ": Scissors ties scissors." + 
                         '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore +
-                        '\n' + "Game over. Click \'Reset\' to start a new game.");
+                        '\n' + "Game over. Click \'Reset\' to start a new game.";
                 }
             } else {
                 if(computerSelection === 'rock'){
                     tieScore++;
                     round++;
-                    console.log("Round #" + round + ": Scissors is beaten rock." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+                    endRound.textContent = "Round #" + round + ": Scissors is beaten rock." + 
+                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
                 } else if(computerSelection === 'paper'){
                     compScore++;
                     round++;
-                    console.log("Round #" + round + ": Scissors beats paper." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+                    endRound.textContent = "Round #" + round + ": Scissors beats paper." + 
+                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
                 } else if(computerSelection === 'scissors'){
                     playerScore++;
                     round++;
-                    console.log("Round #" + round + ": Scissors ties scissors." + 
-                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore);
+                    endRound.textContent = "Round #" + round + ": Scissors ties scissors." + 
+                        '\n' + "Player: " + playerScore + '  \|  ' + "Computer: " + compScore;
                 }
             }
         };
